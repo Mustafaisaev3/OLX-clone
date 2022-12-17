@@ -94,6 +94,7 @@ export const Section = styled.section`
   width: 100%;
   height: auto;
   padding: 50px 0;
+  background-color: ${({bg}: any) => bg };
 `
 
 export const Container = styled.div`
