@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
-import { Container } from '../../pages/globalStyles'
-import { HomeSearchSection, HomeSearchGrid, HomeSearchTitle, HomeSearchGridInner, HomeSearchGridList, HomeSearchGridItem } from './HomeSearch.elements'
+import { Container, Section, Title } from '../../pages/globalStyles'
+import { HomeSearchGrid, HomeSearchGridInner, HomeSearchGridList, HomeSearchGridItem } from './HomeSearch.elements'
 import { Categories } from '../../data/Categories'
 import Colors from '../../utils/css_variables/colors'
 import SearchForm from '../SearchForm/SearchForm'
@@ -36,12 +36,12 @@ const GridItemTitle = styled.div`
 
 const HomeSearch = () => {
   return (
-    <HomeSearchSection>
+    <Section>
         <SearchForm />
         <HomeSearchGrid>
             <Container>
                 <HomeSearchGridInner>
-                    <HomeSearchTitle>Головні рубрики</HomeSearchTitle> 
+                    <Title>Головні рубрики</Title>
                     <HomeSearchGridList>
                         {Categories.map((item) => {
                             return  <HomeSearchGridItem>
@@ -56,7 +56,7 @@ const HomeSearch = () => {
                 </HomeSearchGridInner>
             </Container>
         </HomeSearchGrid>
-    </HomeSearchSection>
+    </Section>
   )
 }
 

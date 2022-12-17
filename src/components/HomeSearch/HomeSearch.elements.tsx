@@ -1,13 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../utils/css_variables/colors";
 
-export const HomeSearchSection = styled.section`
-    width: 100%;
-    height: auto;
-`
-
-
-
 // Home Search GRID
 export const HomeSearchGrid = styled.div`
     width: 100%;
@@ -24,12 +17,8 @@ export const HomeSearchGridInner = styled.div`
     align-items: center;
 `
 
-export const HomeSearchTitle = styled.h2`
-    font-size: 30px;
-`
-
 export const HomeSearchGridList = styled.div`
-    padding: 50px 0;
+    padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

@@ -90,12 +90,26 @@ select {
 }
 `
 
+export const Section = styled.section`
+  width: 100%;
+  height: auto;
+  padding: 50px 0;
+`
+
 export const Container = styled.div`
     max-width: 1300px;
     height: 100%;
     padding: 0 40px;
     margin: 0 auto;
 
+`
+
+export const Title = styled.h3`
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #002f34;
+  padding-bottom: 50px;
 `
 
 export const LinkComp = styled(Link)`
