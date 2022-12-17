@@ -46,6 +46,7 @@ export const DropdownBody = styled(motion.div)`
     right: 0;
     margin-left: auto;
     margin-right: auto;
+    z-index: 1;
     -webkit-box-shadow: 0px 2px 4px 2px rgba(217,214,217,1);
     -moz-box-shadow: 0px 2px 4px 2px rgba(217,214,217,1);
     box-shadow: 0px 2px 4px 2px rgba(217,214,217,1);

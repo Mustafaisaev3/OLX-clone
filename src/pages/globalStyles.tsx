@@ -1,5 +1,6 @@
 import styled, {createGlobalStyle} from 'styled-components'
 import Link from 'next/link'
+import Colors from '../utils/css_variables/colors'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -44,6 +45,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  background-color: ${Colors.main_bg};
 }
 
 /* A elements that don't have a class get default styles */
@@ -91,6 +93,7 @@ select {
 export const Container = styled.div`
     max-width: 1300px;
     height: 100%;
+    padding: 0 40px;
     margin: 0 auto;
 
 `

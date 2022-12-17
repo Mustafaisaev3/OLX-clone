@@ -14,7 +14,6 @@ export const HeaderComp = styled.header`
 export const HeaderInner = styled.div`
     width: 100%;
     height: 100%;
-    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,7 +40,7 @@ export const HeaderNav = styled.nav`
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 20px
+    gap: 20px;
 `
 
 // Language
