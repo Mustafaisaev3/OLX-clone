@@ -9,12 +9,12 @@ import VIPAd from '../components/Sections/Home/VIPAd/VIPAd'
 export default function Home() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <HomeSearch />
       <VIPAd />
       <Business />
       <SocialLinks />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

@@ -2,27 +2,35 @@ import styled from "styled-components";
 import { motion } from 'framer-motion'
 import Colors from "../../../utils/css_variables/colors"
 
-interface DropdownInterface {
+
+interface DropdownTitleInterface {
+    titleColor?: string,
     active?: boolean
 }
 
 
 export const DropdownContainer = styled.div`
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
 `
 
-export const DropdownTitle = styled.div<DropdownInterface>`
+export const DropdownTitle = styled.div<DropdownTitleInterface>`
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
     gap: 10px;
-    color: white;
+    color: ${({titleColor}: any) => titleColor ? titleColor : 'white'};
     cursor: pointer;
 
     .dropdown-title__right-icon {
+        color: ${({titleColor}: any) => titleColor ? titleColor : 'white'};
         transform: ${({active}) => active ? 'rotate(180deg)' : 'rotate(0)'};
         transition: all 0.1s;
     }
@@ -36,12 +44,11 @@ export const DropdownTitle = styled.div<DropdownInterface>`
 export const DropdownBody = styled(motion.div)`
     width: auto;
     height: auto;
-    /* padding: 20px; */
     border-radius: 5px;
     overflow: hidden;
     background-color: white;
     position: absolute;
-    top: 150%;
+    top: 100%;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -55,11 +62,12 @@ export const DropdownBody = styled(motion.div)`
 export const DropdownBodyContainer = styled.div`
     width: 100%;
     height: auto;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 `
 
 export const DropdownContainerTitle = styled.div`
     padding: 5px 20px;
+    padding-top: 30px;
     font-size: 20px;
     color: rgb(127, 151, 153);
     

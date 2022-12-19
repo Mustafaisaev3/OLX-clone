@@ -4,12 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 interface DropdownInterface {
     children?: any, 
-    title: string, 
+    title: string,
+    titleColor?: string, 
     leftIcon?: React.ReactNode, 
     rightIcon?: React.ReactNode,
 }
 
-const Dropdown = ({children, title, leftIcon, rightIcon}: DropdownInterface) => {
+const Dropdown = ({children, title, titleColor, leftIcon, rightIcon}: DropdownInterface) => {
   const [activeDropdown, setActiveDropdown] = useState<boolean>(false)
 
   const handleDropdownClick = () => {
@@ -18,7 +19,7 @@ const Dropdown = ({children, title, leftIcon, rightIcon}: DropdownInterface) => 
 
   return (
     <DropdownContainer>
-        <DropdownTitle onClick={handleDropdownClick} active={activeDropdown}>
+        <DropdownTitle onClick={handleDropdownClick} active={activeDropdown} titleColor={titleColor}>
             {leftIcon}        
             {title}       
             {rightIcon}
