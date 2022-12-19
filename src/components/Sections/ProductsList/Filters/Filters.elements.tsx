@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import Colors from "../../../../utils/css_variables/colors";
 
+type FiltersGridItemContainerType = {
+    bg?: string
+}
+
 export const FiltersContainer = styled.div`
     
 `
@@ -32,11 +36,11 @@ export const FiltersGridItemTitle = styled.h4`
     
 `
 
-export const FiltersGridItemContainer = styled.div`
+export const FiltersGridItemContainer = styled.div<FiltersGridItemContainerType>`
     width: 100%;
     height: 50px;
     border-radius: 3px;
-    background-color: #fff;
+    background-color: ${({bg}: FiltersGridItemContainerType) => bg ? bg : '#fff'};
     display: flex;
     align-items: center;
     justify-content: center;

@@ -7,6 +7,8 @@ import { FiltersContainer, FiltersSectionTitle, FiltersGrid, FiltersGridItem, Fi
 
 import {IoIosArrowDown} from 'react-icons/io'
 import CheckboxFilter from '../../../Filters/CheckboxFilter/CheckboxFilter'
+import FromToFilter from '../../../Filters/FromToFilter/FromToFilter'
+
 
 const Filters = () => {
   return (
@@ -18,16 +20,13 @@ const Filters = () => {
                     <FiltersGridItem>
                         <FiltersGridItemTitle>Категорія</FiltersGridItemTitle>
                         <FiltersGridItemContainer>
-                            <Dropdown title='Всі оголошення' titleColor={Colors.text_main} rightIcon={<IoIosArrowDown size={25} className='dropdown-title__right-icon ' />}>
-                                <DropdownBody>
-                                    <DropdownBodyContainer>
-                                        <CheckboxFilter name='check' value='check' label='Повний робочий день'></CheckboxFilter>
-                                        <CheckboxFilter name='check' value='check' label='Неповний робочий день'></CheckboxFilter>
-                                        <CheckboxFilter name='hec' value='check' label='Повний робочий день'></CheckboxFilter>
-                                        <CheckboxFilter name='check' value='check' label='Неповний робочий день'></CheckboxFilter>
-                                    </DropdownBodyContainer>
-                                </DropdownBody>
-                            </Dropdown>
+                            <CheckboxFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Ціна</FiltersGridItemTitle>
+                        <FiltersGridItemContainer bg='none'>
+                            <FromToFilter />
                         </FiltersGridItemContainer>
                     </FiltersGridItem>
                 </FiltersGrid>

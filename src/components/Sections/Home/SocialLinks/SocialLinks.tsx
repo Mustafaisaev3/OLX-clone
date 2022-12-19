@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Container, Section } from '../../../../pages/globalStyles'
-import { SocialLinksInner, SocialLinksText, SocialLinksContainer, SocialLinksItem, SocialLink, SocialLinksIcon, SocialLinksSpan } from './SocialLinks.elements'
+import { SocialLinksInner, SocialLinksText, SocialLinksContainer, SocialLinksItem, SocialLink, SocialLinksSpan } from './SocialLinks.elements'
 
 const SocialLinks = () => {
   return (

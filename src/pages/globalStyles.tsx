@@ -90,7 +90,7 @@ select {
 }
 `
 
-export const Section = styled.section`
+export const Section = styled.section<any>`
   width: 100%;
   height: auto;
   padding: 50px 0;

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 interface DropdownInterface {
     children?: any, 
-    title: string,
+    title: string | React.ReactNode,
     titleColor?: string, 
     leftIcon?: React.ReactNode, 
     rightIcon?: React.ReactNode,
@@ -16,6 +16,8 @@ const Dropdown = ({children, title, titleColor, leftIcon, rightIcon}: DropdownIn
   const handleDropdownClick = () => {
     setActiveDropdown(!activeDropdown)
   }
+
+
 
   return (
     <DropdownContainer>

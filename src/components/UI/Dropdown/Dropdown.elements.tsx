@@ -23,8 +23,9 @@ export const DropdownTitle = styled.div<DropdownTitleInterface>`
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     font-size: 20px;
+    padding: 0px 15px;
     gap: 10px;
     color: ${({titleColor}: any) => titleColor ? titleColor : 'white'};
     cursor: pointer;
