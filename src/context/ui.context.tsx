@@ -8,7 +8,7 @@ export interface State {
   
 const initialState = {
     displayModal: false,
-    modalView: "LOGIN_VIEW",
+    modalView: "IMAGE_SLIDER_VIEW",
     modalData: null,
 };
 
@@ -32,6 +32,7 @@ type Action =
 type MODAL_VIEWS =
   | "SIGN_UP_VIEW"
   | "LOGIN_VIEW"
+  | "IMAGE_SLIDER_VIEW"
   | "ORDER_POPUP"
   | "CONFIRMATION_MODAL_VIEW"
   | "PRODUCT_VIEW"
@@ -85,6 +86,7 @@ export const UIProvider: React.FC<any> = (props: any) => {
     const setModalView = (view: MODAL_VIEWS) => dispatch({type: 'SET_MODAL_VIEW', view})
 
     const value = useMemo(() => ({
+        ...state,
         openModal,
         closeModal,
         setModalData,
@@ -103,6 +105,9 @@ export const useUI = () => {
     return context;
 };
   
-export const ManagedUIContext: React.FC = ({ children }: any) => (
+
+export const ManagedUIContext = ({ children }: any) => (
+  // <CartProvider>
     <UIProvider>{children}</UIProvider>
-)
+  // </CartProvider>
+);
