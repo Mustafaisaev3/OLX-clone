@@ -12,7 +12,7 @@ import FromToFilter from '../../../Filters/FromToFilter/FromToFilter'
 
 const Filters = () => {
   return (
-    <Section>
+    <>
         <Container>
             <FiltersContainer>
                 <FiltersSectionTitle>Фільтри</FiltersSectionTitle>
@@ -29,10 +29,58 @@ const Filters = () => {
                             <FromToFilter />
                         </FiltersGridItemContainer>
                     </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Категорія</FiltersGridItemTitle>
+                        <FiltersGridItemContainer>
+                            <CheckboxFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Ціна</FiltersGridItemTitle>
+                        <FiltersGridItemContainer bg='none'>
+                            <FromToFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Категорія</FiltersGridItemTitle>
+                        <FiltersGridItemContainer>
+                            <CheckboxFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Ціна</FiltersGridItemTitle>
+                        <FiltersGridItemContainer bg='none'>
+                            <FromToFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Категорія</FiltersGridItemTitle>
+                        <FiltersGridItemContainer>
+                            <CheckboxFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Ціна</FiltersGridItemTitle>
+                        <FiltersGridItemContainer bg='none'>
+                            <FromToFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Категорія</FiltersGridItemTitle>
+                        <FiltersGridItemContainer>
+                            <CheckboxFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
+                    <FiltersGridItem>
+                        <FiltersGridItemTitle>Ціна</FiltersGridItemTitle>
+                        <FiltersGridItemContainer bg='none'>
+                            <FromToFilter />
+                        </FiltersGridItemContainer>
+                    </FiltersGridItem>
                 </FiltersGrid>
             </FiltersContainer>
         </Container>
-    </Section>
+    </>
   )
 }
 

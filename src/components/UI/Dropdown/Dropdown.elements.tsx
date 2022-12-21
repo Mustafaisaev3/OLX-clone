@@ -5,6 +5,7 @@ import Colors from "../../../utils/css_variables/colors"
 
 interface DropdownTitleInterface {
     titleColor?: string,
+    titleBg?: string,
     active?: boolean
 }
 
@@ -19,8 +20,11 @@ export const DropdownContainer = styled.div`
 `
 
 export const DropdownTitle = styled.div<DropdownTitleInterface>`
+    /* width: 100%;
+    height: 100%; */
     width: 100%;
-    height: 100%;
+    height: 50px;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,6 +32,7 @@ export const DropdownTitle = styled.div<DropdownTitleInterface>`
     padding: 0px 15px;
     gap: 10px;
     color: ${({titleColor}: any) => titleColor ? titleColor : 'white'};
+    background-color: ${({titleBg}: any) => titleBg ? titleBg : ''};
     cursor: pointer;
 
     .dropdown-title__right-icon {

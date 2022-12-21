@@ -6,11 +6,12 @@ interface DropdownInterface {
     children?: any, 
     title: string | React.ReactNode,
     titleColor?: string, 
+    titleBg?: string, 
     leftIcon?: React.ReactNode, 
     rightIcon?: React.ReactNode,
 }
 
-const Dropdown = ({children, title, titleColor, leftIcon, rightIcon}: DropdownInterface) => {
+const Dropdown = ({children, title, titleColor, titleBg, leftIcon, rightIcon}: DropdownInterface) => {
   const [activeDropdown, setActiveDropdown] = useState<boolean>(false)
 
   const handleDropdownClick = () => {
@@ -21,7 +22,7 @@ const Dropdown = ({children, title, titleColor, leftIcon, rightIcon}: DropdownIn
 
   return (
     <DropdownContainer>
-        <DropdownTitle onClick={handleDropdownClick} active={activeDropdown} titleColor={titleColor}>
+        <DropdownTitle onClick={handleDropdownClick} active={activeDropdown} titleColor={titleColor} titleBg={titleBg}>
             {leftIcon}        
             {title}       
             {rightIcon}
