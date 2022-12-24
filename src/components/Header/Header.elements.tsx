@@ -41,6 +41,10 @@ export const HeaderNav = styled.nav`
     display: flex;
     align-items: center;
     gap: 20px;
+
+    button {
+        width: 190px;
+    }
 `
 
 // Language

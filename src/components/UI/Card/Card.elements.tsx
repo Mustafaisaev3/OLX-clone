@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const CardComp = styled.div`
+export const CardComp = styled.div<any>`
     width: 100%;
     height: auto;
-    padding: 15px;
+    padding: ${({paddingSize}) => paddingSize};
     border-radius: 5px;
     background-color: white;
 `

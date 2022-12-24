@@ -5,27 +5,18 @@ import { VIPinner, VIPgrid } from './VIPAd.elements'
 import ProductCard from '../../../ProductCard/ProductCard'
 
 
-const VIPAd = () => {
+const VIPAd = ({data}: any) => {
   return (
     <Section>
         <Container>
             <VIPinner>
                 <Title>VIP обьявления</Title>
                 <VIPgrid>
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                  {data && data.map((item: any) => {
+                    return(
+                      <ProductCard data={item}/>
+                    )
+                  })}
                 </VIPgrid>
             </VIPinner>
         </Container>

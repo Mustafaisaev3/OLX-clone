@@ -1,6 +1,8 @@
 import React from 'react'
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
 import MainContent from '../components/Sections/Ad/MainContent/MainContent'
+import CardSlider from '../components/Widgets/CardSlider/CardSlider'
+import { ProductsData } from '../data/Products'
 import { Container, Section } from './globalStyles'
 
 const breadcrumbs = [
@@ -15,6 +17,8 @@ const Ad = () => {
         <Container>
             <Breadcrumbs breadcrumbs={breadcrumbs}/>
             <MainContent></MainContent>
+            <CardSlider title='Усі оголошення автора' data={ProductsData}></CardSlider>
+            <CardSlider title='Схожі оголошення' data={ProductsData}></CardSlider>
         </Container>
     </Section>
   )

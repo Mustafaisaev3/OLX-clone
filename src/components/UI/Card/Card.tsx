@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { FC, HTMLAttributes, ReactNode } from 'react'
+import { Padding, PaddingType } from '../../../utils/paddings/Padding'
 import { CardComp } from './Card.elements'
 
-const Card = ({children}: any) => {
+interface CardInterface extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode,
+  paddingSize?: PaddingType
+}
+
+const Card: FC<CardInterface> = ({children, paddingSize = 'm'}) => {
   return (
-    <CardComp>
+    <CardComp paddingSize={Padding[paddingSize]}>
         {children}
     </CardComp>
   )

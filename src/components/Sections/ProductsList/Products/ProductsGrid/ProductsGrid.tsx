@@ -4,20 +4,15 @@ import ProductCard from '../../../../ProductCard/ProductCard'
 import Card from '../../../../UI/Card/Card'
 import { ProductsGridContainer } from './ProductsGrid.elements'
 
-const ProductsGrid = () => {
+const ProductsGrid = ({data}: any) => {
   return (
     <ProductsGridContainer>
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
-     <ProductCard />  
+      {data && data.map((item: any) => {
+        return(
+          <ProductCard data={item} />  
+        )
+      })}
+
     </ProductsGridContainer>
   )
 }

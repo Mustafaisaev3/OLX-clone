@@ -10,11 +10,17 @@ export const MainContentContainer = styled.div`
 `
 
 export const LeftContent = styled.div`
-    width: 70%;
+    width: 65%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 `
 
 export const RightContent = styled.div`
-    width: 30%;
+    width: 35%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 `

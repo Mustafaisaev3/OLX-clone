@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../../../../UI/Card/Card'
-import { ImagesContainer, FullSizeIcon } from './PhotoCard.elements';
+import { ImagesContainer, FullSizeIcon } from './ImageSliderCard.elements';
 import ImageSlider from '../../../../ImageSlider/ImageSlider';
 import { BsArrowsFullscreen } from 'react-icons/bs'
 
@@ -12,7 +12,7 @@ interface PhotoCardInterface {
     images: string[]
 }
 
-const PhotoCard = ({images}: PhotoCardInterface) => {
+const ImageSliderCard = ({images}: PhotoCardInterface) => {
   const {openModal, setModalView, modalView} = useUI()
 
   const openImageModal = () => {
@@ -33,4 +33,4 @@ const PhotoCard = ({images}: PhotoCardInterface) => {
   )
 }
 
-export default PhotoCard
+export default ImageSliderCard

@@ -1,7 +1,9 @@
 import React from 'react'
 import { MainContentContainer, LeftContent, RightContent } from './MainContent.elements'
-import PhotoCard from './PhotoCard/PhotoCard'
+import ImageSliderCard from './ImageSliderCard/ImageSliderCard'
 import SallerInfo from './SallerInfo/SallerInfo'
+import PlaceInfo from './PlaceInfo/PlaceInfo'
+import AdMainInfo from './AdMainInfo/AdMainInfo'
 
 const AdImages = [
     'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.r3PDfOsoVtAiyrs4QcZ8EwHaDa%26pid%3DApi&f=1&ipt=8811c22c0fe3d76e34886266e736d68ea767c2672d063de4bfdfe4689621592a&ipo=images',
@@ -15,10 +17,12 @@ const MainContent = () => {
   return (
     <MainContentContainer>
         <LeftContent>
-            <PhotoCard images={AdImages}></PhotoCard>
+            <ImageSliderCard images={AdImages}></ImageSliderCard>
+            <AdMainInfo></AdMainInfo>
         </LeftContent>
         <RightContent>
             <SallerInfo></SallerInfo>
+            <PlaceInfo></PlaceInfo>
         </RightContent>
     </MainContentContainer>
   )

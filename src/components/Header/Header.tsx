@@ -71,7 +71,7 @@ const Header = () => {
                             </Dropdown>
                         </UserBoxItem>
                     </UserBox>
-                    <Button>Додати оголошення</Button>
+                    <Button type='primary'>Додати оголошення</Button>
                 </HeaderNav>
             </HeaderInner>
         </Container>
