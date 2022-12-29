@@ -20,7 +20,7 @@ const Header = () => {
         <Container>
             <HeaderInner>
                 <Logo>
-                    <LogoLink href='#'>
+                    <LogoLink href='/'>
                         <LogoImage src='/assets/images/olx_logo.png' alt='logo_image' width={90} height={50} /> 
                     </LogoLink>
                 </Logo>

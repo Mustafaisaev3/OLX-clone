@@ -5,12 +5,20 @@ import { CardTitle } from '../../../../UI/Card/Card.elements'
 import { SallerInfoContainer, UserInfoBlock, UserImage, UserInfo, UserName, LustOnlineDate, SallerInfoBtns, AllSallerAdsLinkContainer, AllSallerAdsLink } from './SalesrInfo.elements'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import Colors from '../../../../../utils/css_variables/colors'
+import { useSelector } from 'react-redux'
+import { selectUserData, selectUserState } from '../../../../../store/ducks/user/selectors'
 
 const SallerInfo = () => {
   const [showPhone, setShowPhone] = useState(false)
 
   const showPhoneBtnClick = () => {
     setShowPhone(!showPhone)
+  }
+
+  const user = useSelector(selectUserData)
+  
+  const handleClickBtn = () => {
+    console.log(user)
   }
 
   return (
@@ -26,7 +34,7 @@ const SallerInfo = () => {
             </UserInfoBlock>
             <SallerInfoBtns>
               <Button type='primaryBordered' onClick={showPhoneBtnClick}>{showPhone ? '+380973384523' : 'Телефон'}</Button>
-              <Button type='secondary'>Повідомлення</Button>
+              <Button type='secondary' onClick={handleClickBtn}>Повідомлення</Button>
             </SallerInfoBtns>
             <AllSallerAdsLinkContainer>
               <AllSallerAdsLink>
