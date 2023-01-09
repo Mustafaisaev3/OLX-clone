@@ -4,12 +4,18 @@ export interface State {
     displayModal: boolean;
     modalView: string;
     modalData: any;
+    displayImagesModal: boolean;
+    imagesModalView: string;
+    imagesModalData: any;
 }
   
 const initialState = {
     displayModal: false,
-    modalView: "IMAGE_SLIDER_VIEW",
+    modalView: "SELECT_NEW_AD_CATEGORY_VIEW",
     modalData: null,
+    displayImagesModal: false,
+    imagesModalView: "IMAGE_SLIDER_VIEW",
+    imagesModalData: null,
 };
 
 type Action =
@@ -27,6 +33,20 @@ type Action =
       type: "SET_MODAL_VIEW";
       view: MODAL_VIEWS;
     }
+  | {
+      type: "OPEN_IMAGES_MODAL";
+    }
+  | {
+      type: "CLOSE_IMAGES_MODAL";
+    }
+  | {
+      type: "SET_IMAGES_MODAL_DATA";
+      data: any;
+    } 
+  | {
+      type: "SET_IMAGES_MODAL_VIEW";
+      view: MODAL_VIEWS;
+    }
   
 
 type MODAL_VIEWS =
@@ -34,12 +54,8 @@ type MODAL_VIEWS =
   | "LOGIN_VIEW"
   | "IMAGE_SLIDER_VIEW"
   | "ORDER_POPUP"
-  | "CONFIRMATION_MODAL_VIEW"
-  | "PRODUCT_VIEW"
-  | "ADD_PRODUCT_VIEW"
-  | "UPDATE_PRODUCT_VIEW"
-  | "ADD_DEPARTMENT_VIEW"
-  | "UPDATE_DEPARTMENT_VIEW";
+  | "SELECT_NEW_AD_CATEGORY_VIEW"
+
 
 
 export const UIContext = createContext<State | any>(initialState);
@@ -74,6 +90,34 @@ function uiReducer(state: State, action: Action) {
           modalData: action.data,
         };
       }
+
+      case "OPEN_IMAGES_MODAL": {
+        return {
+          ...state,
+          displayModal: true,
+        };
+      }
+
+      case "CLOSE_IMAGES_MODAL": {
+        return {
+          ...state,
+          displayModal: false,
+        };
+      }
+
+      case "SET_IMAGES_MODAL_VIEW": {
+        return {
+          ...state,
+          modalView: action.view,
+        };
+      }
+
+      case "SET_IMAGES_MODAL_DATA": {
+        return {
+          ...state,
+          modalData: action.data,
+        };
+      }
     }
 }
 
@@ -85,12 +129,21 @@ export const UIProvider: React.FC<any> = (props: any) => {
     const setModalData = (data: any) => dispatch({type: 'SET_MODAL_DATA', data})
     const setModalView = (view: MODAL_VIEWS) => dispatch({type: 'SET_MODAL_VIEW', view})
 
+    const openImagesModal = () => dispatch({type: 'OPEN_IMAGES_MODAL'})
+    const closeImagesModal = () => dispatch({type: 'CLOSE_IMAGES_MODAL'})
+    const setImagesModalData = (data: any) => dispatch({type: 'SET_IMAGES_MODAL_DATA', data})
+    const setImagesModalView = (view: MODAL_VIEWS) => dispatch({type: 'SET_IMAGES_MODAL_VIEW', view})
+
     const value = useMemo(() => ({
         ...state,
         openModal,
         closeModal,
         setModalData,
         setModalView,
+        openImagesModal,
+        closeImagesModal,
+        setImagesModalData,
+        setImagesModalView,
     }), [state])
 
     return <UIContext.Provider value={value} {...props} />;

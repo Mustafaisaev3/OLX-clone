@@ -11,16 +11,16 @@ export const ButtonEl = styled.button<any>`
     justify-content: center;
     gap: 15px;
     line-height: 0;
-    color: ${({type}) => type?.color} ;
-    background-color: ${({type}) => type?.bg} ;
-    border: ${({type}) => type?.borderSize} solid ${({type}) => type?.borderColor};
+    color: ${({buttontype}) => buttontype?.color} ;
+    background-color: ${({buttontype}) => buttontype?.bg} ;
+    border: ${({buttontype}) => buttontype?.borderSize} solid ${({buttontype}) => buttontype?.borderColor};
     border-radius: 5px;
     cursor: pointer;
     
     &:hover {
-        border: ${({type}) => type?.borderHoverSize} solid ${({type}) => type?.hoverBorderColor}; 
-        color: ${({type}) => type?.hoverColor};
-        background-color: ${({type}) => type?.hoverBg};
+        border: ${({buttontype}) => buttontype?.borderHoverSize} solid ${({buttontype}) => buttontype?.hoverBorderColor}; 
+        color: ${({buttontype}) => buttontype?.hoverColor};
+        background-color: ${({buttontype}) => buttontype?.hoverBg};
     }
 `
 // export const ButtonEl = styled.button<any>`

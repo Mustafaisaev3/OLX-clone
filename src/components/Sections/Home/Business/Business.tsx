@@ -14,7 +14,7 @@ const Business = () => {
                     <BusinessTitle>Виділяйтеся як компанія!</BusinessTitle>
                     <BusinessText>Перегляньте пропозицію OLX для бізнесу</BusinessText>
                 </BusinessContent>
-                <Button>Детальніше</Button>
+                <Button buttontype='primary'>Детальніше</Button>
             </BusinessInner>
         </Container>
     </BusinessSection>

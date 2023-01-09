@@ -12,9 +12,15 @@ import { FiHeart } from 'react-icons/fi'
 import {HiOutlineUser} from 'react-icons/hi'
 import {IoIosArrowDown} from 'react-icons/io'
 import Button from '../UI/Button/Button'
+import { useRouter } from 'next/router'
 
 
 const Header = () => {
+    const router = useRouter()
+    // http://localhost:3000/post_new_ad
+    const handleAddNewAdBtnClick = () => {
+        router.push('/post_new_ad')
+    }
   return (
     <HeaderComp>
         <Container>
@@ -66,12 +72,12 @@ const Header = () => {
                                         <DropdownContainerItem>Пошуки</DropdownContainerItem>
                                     </DropdownContainerItems>
                                 </DropdownBodyContainer>
-                                <DropdownButton onClick={() => console.log('hello')}>Вийти</DropdownButton>
+                                <DropdownButton onClick={() => router.push('/account/login')}>Вийти</DropdownButton>
                             </DropdownBody>
                             </Dropdown>
                         </UserBoxItem>
                     </UserBox>
-                    <Button type='primary'>Додати оголошення</Button>
+                    <Button buttontype='primary' onClick={handleAddNewAdBtnClick}>Додати оголошення</Button>
                 </HeaderNav>
             </HeaderInner>
         </Container>

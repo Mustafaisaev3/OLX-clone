@@ -33,8 +33,8 @@ const SallerInfo = () => {
               </UserInfo>
             </UserInfoBlock>
             <SallerInfoBtns>
-              <Button type='primaryBordered' onClick={showPhoneBtnClick}>{showPhone ? '+380973384523' : 'Телефон'}</Button>
-              <Button type='secondary' onClick={handleClickBtn}>Повідомлення</Button>
+              <Button buttontype='primaryBordered' onClick={showPhoneBtnClick}>{showPhone ? '+380973384523' : 'Телефон'}</Button>
+              <Button buttontype='secondary' onClick={handleClickBtn}>Повідомлення</Button>
             </SallerInfoBtns>
             <AllSallerAdsLinkContainer>
               <AllSallerAdsLink>

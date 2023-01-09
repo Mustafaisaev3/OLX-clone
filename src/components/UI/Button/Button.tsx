@@ -5,16 +5,17 @@ import { ButtonEl } from './Button.elements'
 
 interface ButtonInterface extends HTMLAttributes<HTMLButtonElement> {
   children: any,
-  type: ButtonTypesInterface,
+  type?: string,
+  buttontype: ButtonTypesInterface,
 }
 
 // React.ComponentPropsWithoutRef<"button">
 
-const Button = ({children, type, ...rest}: ButtonInterface) => {
-  const styles = ButtonTypes[type]
+const Button = ({children, type, buttontype, ...rest}: ButtonInterface) => {
+  const styles = ButtonTypes[buttontype]
 
   return (
-    <ButtonEl type={styles} {...rest}>
+    <ButtonEl type={type} buttontype={styles} {...rest}>
         {children}
     </ButtonEl>
   )

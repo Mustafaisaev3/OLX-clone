@@ -1,21 +1,25 @@
-import React, { useState } from 'react'
+import React, { HTMLAttributes, useState } from 'react'
 import { DropdownContainer, DropdownTitle, DropdownBody, DropdownBodyContainer, DropdownContainerTitle, DropdownContainerItems, DropdownContainerItem, DropdownButton } from './Dropdown.elements'
 import { motion, AnimatePresence } from 'framer-motion'
 
-interface DropdownInterface {
+interface DropdownInterface extends HTMLAttributes<HTMLDivElement> {
     children?: any, 
-    title: string | React.ReactNode,
+    title: string | any,
     titleColor?: string, 
     titleBg?: string, 
     leftIcon?: React.ReactNode, 
     rightIcon?: React.ReactNode,
+    onClick?: any
 }
 
-const Dropdown = ({children, title, titleColor, titleBg, leftIcon, rightIcon}: DropdownInterface) => {
+const Dropdown = ({children, title, titleColor, titleBg, leftIcon, rightIcon, onClick}: DropdownInterface) => {
   const [activeDropdown, setActiveDropdown] = useState<boolean>(false)
 
   const handleDropdownClick = () => {
     setActiveDropdown(!activeDropdown)
+    if(onClick){
+      onClick()
+    }
   }
 
 

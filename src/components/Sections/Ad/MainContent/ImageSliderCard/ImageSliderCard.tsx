@@ -13,12 +13,12 @@ interface PhotoCardInterface {
 }
 
 const ImageSliderCard = ({images}: PhotoCardInterface) => {
-  const {openModal, setModalView, modalView} = useUI()
+  const {openImagesModal, setImagesModalView, imagesModalView} = useUI()
 
   const openImageModal = () => {
-    console.log(modalView)
-    setModalView('IMAGE_SLIDER_VIEW')
-    openModal()
+    console.log(imagesModalView)
+    setImagesModalView('IMAGE_SLIDER_VIEW')
+    openImagesModal()
   }
 
   return (

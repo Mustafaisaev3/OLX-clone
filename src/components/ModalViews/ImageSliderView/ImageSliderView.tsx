@@ -35,8 +35,8 @@ const ImageSliderView = () => {
                     <ImageSlider images={AdImages}></ImageSlider>
                 </SliderContainer>
                 <UserBtns>
-                    <Button>Показати телефон</Button>
-                    <Button type='secondary'>Повідомлення</Button>
+                    <Button buttontype='primary'>Показати телефон</Button>
+                    <Button buttontype='primary'>Повідомлення</Button>
                 </UserBtns>
             </ImagesSliderContent>
         </Container>

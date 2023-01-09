@@ -1,25 +1,30 @@
 import React, { useEffect, useRef } from 'react'
 import {Portal} from 'react-portal'
-import styled from 'styled-components'
 import {
 	disableBodyScroll,
 	enableBodyScroll,
 	clearAllBodyScrollLocks,
 } from "body-scroll-lock";
+import { ModalBody, ModalCloseBtn, ModalContainer, ModalHaederComp, ModalInner } from './Modal.elements';
+import { GrClose } from 'react-icons/gr'
+import Colors from '../../../utils/css_variables/colors';
+import { useUI } from '../../../context/ui.context';
 
-const ModalContainer = styled.div`
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-`
 
-const ModalInner = styled.div`
-    width: auto;
-    height: auto;
-`
+const ModalHeader = () => {
+    const { closeModal } = useUI()
+    const handleCloseModalBtn = () => {
+        closeModal()
+    }
+
+    return(
+        <ModalHaederComp>
+            <ModalCloseBtn onClick={handleCloseModalBtn}>
+                <GrClose size={20} color={Colors.text_main} />
+            </ModalCloseBtn>
+        </ModalHaederComp>
+    )
+}
 
 type DivElementRef = React.MutableRefObject<HTMLDivElement>;
 
@@ -47,7 +52,10 @@ const Modal = ({children, open}: any) => {
         {open && (
             <ModalContainer ref={modalRootRef}>
                 <ModalInner ref={modalInnerRef}>
-                    {children}
+                    <ModalHeader />
+                    <ModalBody>
+                        {children}
+                    </ModalBody>
                 </ModalInner>
             </ModalContainer>
         )}

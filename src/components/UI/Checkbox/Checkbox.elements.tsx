@@ -11,7 +11,8 @@ export const CheckboxContainer = styled.div`
         display: flex;
         align-items: center;
         line-height: 1;
-        padding: 10px 15px;
+        padding: 10px 0;
+        /* padding: 10px 15px; */
     }
 
     & input {

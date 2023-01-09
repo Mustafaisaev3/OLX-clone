@@ -9,7 +9,7 @@ export const InputComponent = styled.div`
 
 export const Label = styled.label`
     color: #71848d;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.29;
     margin-bottom: 6px;
     
@@ -27,4 +27,10 @@ export const InputComp = styled.input`
     &:focus{
         border-bottom: 2px solid ${Colors.main_green}
     }
+`
+
+export const InputError = styled.p`
+    font-size: 12px;
+    color: red;
+    padding-top: 5px;
 `

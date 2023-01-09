@@ -15,7 +15,6 @@ const FromToFilter = () => {
   return (
     <FromToFilterContainer>
         <From>
-            {/* <Dropdown title={<FilterInput value={from} onChange={(e) => setFrom(e.target.value)} placeholder='Від:' />} titleColor={Colors.text_main}> */}
             <Dropdown title={<FilterInput value={from} onChange={setFrom} placeholder='Від:' clearInput={setFrom} />} titleColor={Colors.text_main}>
                 <DropdownBody>
                     <DropdownBodyContainer>
