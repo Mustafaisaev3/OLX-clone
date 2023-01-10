@@ -1,4 +1,5 @@
 import axios from "axios"
+import { useUI } from "../context/ui.context"
 
 
 export interface AuthResponceApi {
@@ -13,7 +14,6 @@ export const AuthApi = {
     },
 
     async signIn(postData: any) {
-        console.log('sign')
         const data = await axios.post<AuthResponceApi>('http://localhost:8888/login', {email: postData.email, password: postData.password})
         console.log(data)
         return data

@@ -3,7 +3,7 @@ import { AuthApi } from '../../../services/AuthApi'
 import { LoadingState } from '../../types'
 import { setUserData, setUserDataLoadingState } from './action'
 import { UserActionsType } from './contracts/actionsType'
- 
+
 
 export function* fetchSignUpRequest (payload: any) {
     try {
@@ -50,3 +50,5 @@ export function* userSaga () {
     yield takeEvery(UserActionsType.FETCH_SIGN_IN, fetchSignInRequest)
     yield takeEvery(UserActionsType.FETCH_AUTH, fetchAuth)
 }
+
+

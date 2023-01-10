@@ -7,6 +7,8 @@ export interface State {
     displayImagesModal: boolean;
     imagesModalView: string;
     imagesModalData: any;
+    toastText: string;
+    toastList: []
 }
   
 const initialState = {
@@ -16,7 +18,15 @@ const initialState = {
     displayImagesModal: false,
     imagesModalView: "IMAGE_SLIDER_VIEW",
     imagesModalData: null,
+    toastText: '',
+    toastList: []
 };
+
+export type ToastType = {
+  id: number,
+  toastType: string,
+  text: string
+}
 
 type Action =
   | {
@@ -47,7 +57,18 @@ type Action =
       type: "SET_IMAGES_MODAL_VIEW";
       view: MODAL_VIEWS;
     }
-  
+  | {
+      type: "ADD_TOAST";
+      toast: ToastType;
+    }
+  | {
+      type: "DELETE_TOAST";
+      id: number;
+    }
+  | {
+      type: "SET_TOAST_TEXT";
+      text: string;
+    }
 
 type MODAL_VIEWS =
   | "SIGN_UP_VIEW"
@@ -118,6 +139,33 @@ function uiReducer(state: State, action: Action) {
           modalData: action.data,
         };
       }
+
+      case "SET_TOAST_TEXT": {
+        return {
+          ...state,
+          toastText: action.text,
+        };
+      }
+
+      case "ADD_TOAST": {
+        const toast = action.toast
+        let newToastList: ToastType[] = []
+        newToastList.unshift(toast)
+  
+        return {
+          ...state,
+          toastList: [...state.toastList, ...newToastList]
+        }
+      }
+
+      case 'DELETE_TOAST':
+        let newToastList = state.toastList.filter((element: ToastType) => {
+          return action.id !== element.id 
+        })
+        return {
+          ...state,
+          toastList: [...newToastList]
+        }
     }
 }
 
@@ -134,6 +182,9 @@ export const UIProvider: React.FC<any> = (props: any) => {
     const setImagesModalData = (data: any) => dispatch({type: 'SET_IMAGES_MODAL_DATA', data})
     const setImagesModalView = (view: MODAL_VIEWS) => dispatch({type: 'SET_IMAGES_MODAL_VIEW', view})
 
+    const addToast = (toast: ToastType) => dispatch({type: 'ADD_TOAST', toast})
+    const deleteToast = (id: number) => dispatch({type: 'DELETE_TOAST', id})
+
     const value = useMemo(() => ({
         ...state,
         openModal,
@@ -144,6 +195,8 @@ export const UIProvider: React.FC<any> = (props: any) => {
         closeImagesModal,
         setImagesModalData,
         setImagesModalView,
+        addToast,
+        deleteToast,
     }), [state])
 
     return <UIContext.Provider value={value} {...props} />;

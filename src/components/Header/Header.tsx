@@ -13,6 +13,7 @@ import {HiOutlineUser} from 'react-icons/hi'
 import {IoIosArrowDown} from 'react-icons/io'
 import Button from '../UI/Button/Button'
 import { useRouter } from 'next/router'
+import { useUI } from '../../context/ui.context'
 
 
 const Header = () => {
@@ -21,6 +22,8 @@ const Header = () => {
     const handleAddNewAdBtnClick = () => {
         router.push('/post_new_ad')
     }
+
+    const {addToast} = useUI()
   return (
     <HeaderComp>
         <Container>

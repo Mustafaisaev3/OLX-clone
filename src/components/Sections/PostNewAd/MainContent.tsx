@@ -38,8 +38,6 @@ const PostNewAdMainContent = () => {
     dispatch(fetchCategories())
   },[])
 
-  console.log(user, 'user')
-
   useEffect(() => {}, [activeCategory])
 
   
@@ -63,7 +61,7 @@ const PostNewAdMainContent = () => {
     <MainContentContainer>
       <Title>Створити оголошення</Title> 
       {/* <Category activeCategory={activeCategory && activeCategory} /> */}
-      <Category getData={setCategoryData}/>
+      <Category getData={setCategoryData} getTitle={setTitleData}/>
       <PriceBlock getData={setPriceData} />
       <PhotosGrid getData={setPhotosData} />
       <AdditionalInformation data={activeCategory && activeCategory.options} getData={setAdditionalInformationData} />

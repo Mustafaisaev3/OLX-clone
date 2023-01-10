@@ -7,6 +7,7 @@ import { ManagedUIContext } from '../context/ui.context'
 import ManagedModal from '../components/UI/Modal/ManagedModal'
 import { Provider } from 'react-redux'
 import { store } from '../store/store'
+import ManagedToast from '../components/UI/Toast/ManagedToast'
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <GlobalStyle/>
         <Component {...pageProps} />
         <ManagedModal />
+        <ManagedToast />
       </Layout>
     </ManagedUIContext>
   </Provider>

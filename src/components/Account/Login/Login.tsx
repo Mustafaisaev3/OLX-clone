@@ -6,10 +6,12 @@ import { useDispatch } from 'react-redux'
 
 import Authorization from '../Authorization/Authorization'
 import { fetchSignIn } from '../../../store/ducks/user/action'
+import { useUI } from '../../../context/ui.context'
 
 const Login = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const {addToast} = useUI()
 
   const dispatch = useDispatch()
 
@@ -17,6 +19,7 @@ const Login = () => {
     e.preventDefault()
     console.log(email, password)
     dispatch(fetchSignIn({email, password}))
+    addToast({toastType: 'success', text: 'Ви успішно зареєструвалисть!', id: Math.random()})
   }
 
   // console.log(useSelector(selectUserState))
@@ -26,7 +29,7 @@ const Login = () => {
       <Form>
           <Input value={email} onChange={setEmail} label='Email-адреса або номер телефону' type='email' name='email' placeholder='Email-адреса або номер телефону'/>
           <Input value={password} onChange={setPassword} label='Ваш поточный пароль від OLX ' type='password' name='password' placeholder='Ваш поточный пароль від OLX'/>
-          <Button type='secondary' onClick={(e) => handleLoginBtnClick(e)}>Увійти</Button>
+          <Button buttontype='secondary' onClick={(e) => handleLoginBtnClick(e)}>Увійти</Button>
       </Form>
     </Authorization>
   )

@@ -12,16 +12,21 @@ import Dropdown from '../../../UI/Dropdown/Dropdown'
 import { ContentWrapper } from '../MainContent.elements'
 import { CategoryBtn, CategoryContent, CategoryContentSubtitle, CategoryContentTitle, CategoryImage, CheckedCategoryItem } from './Category.elements'
 
-const Category = ({getData}: any) => {
+const Category = ({getData, getTitle}: any) => {
+  const [title, setTitle] = useState('')
   const activeCategory = useSelector(selectActiveCategory)
   const {openModal, setModalView } = useUI()
 
   const handleCategoryChooseBtn = () => {
     setModalView('SELECT_NEW_AD_CATEGORY_VIEW')
     // setSelectedCategory(true)
-    // getData(activeCategory)
+
     return openModal()
   }
+
+  useEffect(() => {
+    getTitle(title)
+  }, [title])
   
   return (
     <Card paddingSize='xl'>
@@ -29,7 +34,7 @@ const Category = ({getData}: any) => {
             <CardTitle>Опишіть у подробицях</CardTitle>
             <CardBlock>
               <CardSubTitle>Вкажіть назву*</CardSubTitle>
-              <Input placeholder='Наприклад, iPhone 11 з гарантією' aria-required />
+              <Input placeholder='Наприклад, iPhone 11 з гарантією' value={title} onChange={setTitle} aria-required />
             </CardBlock>
             <CardBlock>
               <CardSubTitle>Категорія*</CardSubTitle>
