@@ -29,7 +29,7 @@ const PostNewAdMainContent = () => {
   const [contactData, setContactData] = useState({email: '', phone: ''})
 
   const user = useSelector(selectUserData)
-
+  console.log(user)
 
   const dispatch = useDispatch()
   const activeCategory = useSelector(selectActiveCategory)

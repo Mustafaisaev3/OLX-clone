@@ -27,7 +27,7 @@ const AdditionalInformation = ({data, getData}: AdditionalInformation) => {
   }) : []
 
   const [checkedOptions, setCheckedOptions] = useState(initialState)
-  const getOptions = (options: any, id: any) => {
+  const getOptions = (options: any, id: any, title: any) => {
     const filteredOptions = checkedOptions.filter((item: any) => {
       if(item.id !== id) {
         return item

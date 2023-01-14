@@ -15,9 +15,10 @@ interface UploadImageInterface {
 const PhotoCardInputElement = ({getImage}: any) => {
     const handleImageUploadEvent = (e: any) => {
         const file = e.target.files[0]
-        console.log(e.target.files, 'files')
+        console.log(e.target.files[0], 'files')
         if(file) {
             const fileObj = new Blob([file])
+            console.log(fileObj)
             const imageObj = {
                 imageUrl: URL.createObjectURL(fileObj),
                 file: file

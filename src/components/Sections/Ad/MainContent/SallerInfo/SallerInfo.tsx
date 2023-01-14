@@ -7,18 +7,19 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import Colors from '../../../../../utils/css_variables/colors'
 import { useSelector } from 'react-redux'
 import { selectUserData, selectUserState } from '../../../../../store/ducks/user/selectors'
+import { selectAd } from '../../../../../store/ducks/ad/selectors'
 
-const SallerInfo = () => {
+const SallerInfo = ({data}: any) => {
   const [showPhone, setShowPhone] = useState(false)
 
   const showPhoneBtnClick = () => {
     setShowPhone(!showPhone)
   }
 
-  const user = useSelector(selectUserData)
+  const ad = useSelector(selectAd)
   
   const handleClickBtn = () => {
-    console.log(user)
+    // console.log(user)
   }
 
   return (
@@ -28,12 +29,12 @@ const SallerInfo = () => {
             <UserInfoBlock>
               <UserImage src='' />
               <UserInfo>
-                <UserName>Олег</UserName>
+                <UserName>{ad.e_mail}</UserName>
                 <LustOnlineDate>Онлайн вчора в 23:35</LustOnlineDate>
               </UserInfo>
             </UserInfoBlock>
             <SallerInfoBtns>
-              <Button buttontype='primaryBordered' onClick={showPhoneBtnClick}>{showPhone ? '+380973384523' : 'Телефон'}</Button>
+              <Button buttontype='primaryBordered' onClick={showPhoneBtnClick}>{showPhone ? ad.phone : 'Телефон'}</Button>
               <Button buttontype='secondary' onClick={handleClickBtn}>Повідомлення</Button>
             </SallerInfoBtns>
             <AllSallerAdsLinkContainer>

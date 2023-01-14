@@ -2,9 +2,9 @@ import { Action } from "redux";
 import { LoadingState } from "../../../types";
 
 export enum AdsActionsType {
-    FETCH_CREATE_NEW_AD = 'ad/FETCH_CREATE_NEW_AD',
-    CREATE_NEW_AD = 'ad/CREATE_NEW_AD',
-    SET_LOADING_STATE = 'ad/SET_LOADING_STATE',
+    FETCH_CREATE_NEW_AD = 'ads/FETCH_CREATE_NEW_AD',
+    CREATE_NEW_AD = 'ads/CREATE_NEW_AD',
+    SET_LOADING_STATE = 'ads/SET_LOADING_STATE',
 }
 
 export interface fetchCreateNewAdActionInterface extends Action<AdsActionsType> {
