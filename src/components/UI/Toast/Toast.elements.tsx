@@ -28,3 +28,25 @@ export const ToastItemElement = styled.div<any>`
         color: ${({data}) => data.color};
     }
 `
+
+
+// border-left: 3px solid rgb(110, 192, 95);
+// opacity: 1;
+// margin-bottom: 15px;
+// }
+// .ct-toast {
+// display: flex;
+// justify-content: center;
+// align-items: center;
+// padding: 12px 20px;
+// background-color: #fff;
+// box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+// color: #000;
+// border-radius: 4px;
+// margin: 0px;
+//   margin-bottom: 0px;
+// opacity: 1;
+// transition: 0.3s all ease-in-out;
+// min-height: 45px;
+// pointer-events: all;
+// }

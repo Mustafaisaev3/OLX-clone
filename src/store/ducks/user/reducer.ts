@@ -4,6 +4,7 @@ import { UserActionsType } from "./contracts/actionsType"
 
 const initialState = {
     user: {},
+    userAds: [],
     isAuth: false,
     status: LoadingState.NEVER
 }
@@ -37,6 +38,13 @@ export const userReducer = (state = initialState, action: UserActions) => {
                 ...state,
                 user: action.payload,
                 isAuth: true,
+                status: LoadingState.SUCCESS
+            }
+
+        case UserActionsType.SET_USER_ADS_DATA:
+            return {
+                ...state,
+                userAds: action.payload,
                 status: LoadingState.SUCCESS
             }
 

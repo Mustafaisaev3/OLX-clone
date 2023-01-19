@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useUI } from '../../../context/ui.context'
 import { Title } from '../../../pages/globalStyles'
 import { MainContentContainer } from './MainContent.elements'
 import PhotosGrid from './PhotosGrid/PhotosGrid'
@@ -36,7 +35,7 @@ const PostNewAdMainContent = () => {
   console.log(activeCategory)
   useEffect(() => {
     dispatch(fetchCategories())
-  },[])
+  },[dispatch])
 
   useEffect(() => {}, [activeCategory])
 

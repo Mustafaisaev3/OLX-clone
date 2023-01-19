@@ -8,6 +8,8 @@ import ManagedModal from '../components/UI/Modal/ManagedModal'
 import { Provider } from 'react-redux'
 import { store } from '../store/store'
 import ManagedToast from '../components/UI/Toast/ManagedToast'
+import ManagedChatModal from '../components/Widgets/Chat/ManagedChatModal'
+import ManagedConfirmationModal from '../components/UI/ConfirmationModal/managet-confirmation-modal'
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -20,6 +22,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <ManagedModal />
         <ManagedToast />
+        <ManagedChatModal />
+        <ManagedConfirmationModal />
       </Layout>
     </ManagedUIContext>
   </Provider>

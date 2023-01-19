@@ -15,11 +15,17 @@ export const Label = styled.label`
     
 `
 
+export const InputCompContainer = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 export const InputComp = styled.input`
     width: 100%;
     box-sizing: border-box;
     padding: 14px 16px;
     border-radius: 4px;
+    flex-grow: 1;
     background: #f2f4f5;
     outline: none;
     border-bottom: 2px solid white;
@@ -28,6 +34,8 @@ export const InputComp = styled.input`
         border-bottom: 2px solid ${Colors.main_green}
     }
 `
+
+
 
 export const InputError = styled.p`
     font-size: 12px;

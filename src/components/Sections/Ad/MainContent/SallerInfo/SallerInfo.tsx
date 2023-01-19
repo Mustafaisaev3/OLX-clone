@@ -8,9 +8,11 @@ import Colors from '../../../../../utils/css_variables/colors'
 import { useSelector } from 'react-redux'
 import { selectUserData, selectUserState } from '../../../../../store/ducks/user/selectors'
 import { selectAd } from '../../../../../store/ducks/ad/selectors'
+import { useUI } from '../../../../../context/ui.context'
 
 const SallerInfo = ({data}: any) => {
   const [showPhone, setShowPhone] = useState(false)
+  const {openChatModal, setChatModalData, chatModalData} = useUI()
 
   const showPhoneBtnClick = () => {
     setShowPhone(!showPhone)
@@ -19,7 +21,8 @@ const SallerInfo = ({data}: any) => {
   const ad = useSelector(selectAd)
   
   const handleClickBtn = () => {
-    // console.log(user)
+    setChatModalData(data)
+    openChatModal()
   }
 
   return (

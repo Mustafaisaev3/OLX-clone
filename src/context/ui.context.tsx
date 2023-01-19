@@ -1,25 +1,37 @@
 import React, { createContext, useContext, useMemo, useReducer } from "react";
 
+export type confirmationModalDataType = null | {question: string, perfomedFunction: () => any}
+
 export interface State {
     displayModal: boolean;
     modalView: string;
     modalData: any;
+    displayChatModal: boolean;
+    chatModalData: any;
     displayImagesModal: boolean;
     imagesModalView: string;
     imagesModalData: any;
     toastText: string;
-    toastList: []
+    toastList: [];
+    displayConfirmationModal: boolean;
+    confirmationModalView: string;
+    confirmationModalData: confirmationModalDataType;
 }
   
 const initialState = {
     displayModal: false,
     modalView: "SELECT_NEW_AD_CATEGORY_VIEW",
     modalData: null,
+    displayChatModal: false,
+    chatModalData: null,
     displayImagesModal: false,
     imagesModalView: "IMAGE_SLIDER_VIEW",
     imagesModalData: null,
     toastText: '',
-    toastList: []
+    toastList: [],
+    displayConfirmationModal: false,
+    confirmationModalView: "CONFIRMATION_MODAL_VIEW",
+    confirmationModalData: null,
 };
 
 export type ToastType = {
@@ -43,6 +55,16 @@ type Action =
       type: "SET_MODAL_VIEW";
       view: MODAL_VIEWS;
     }
+  | {
+      type: "OPEN_CHAT_MODAL";
+    }
+  | {
+      type: "CLOSE_CHAT_MODAL";
+    }
+  | {
+      type: "SET_CHAT_MODAL_DATA";
+      data: any;
+    } 
   | {
       type: "OPEN_IMAGES_MODAL";
     }
@@ -69,6 +91,20 @@ type Action =
       type: "SET_TOAST_TEXT";
       text: string;
     }
+  | {
+      type: "OPEN_CONFIRMATION_MODAL";
+    }
+  | {
+      type: "CLOSE_CONFIRMATION_MODAL";
+    }
+  | {
+      type: "SET_CONFIRMATION_MODAL_VIEW";
+      view: CONFIRMATION_MODAL_VIEWS;
+    }
+  | {
+      type: "SET_CONFIRMATION_MODAL_DATA";
+      data: confirmationModalDataType;
+    }
 
 type MODAL_VIEWS =
   | "SIGN_UP_VIEW"
@@ -77,7 +113,7 @@ type MODAL_VIEWS =
   | "ORDER_POPUP"
   | "SELECT_NEW_AD_CATEGORY_VIEW"
 
-
+type CONFIRMATION_MODAL_VIEWS = "CONFIRMATION_MODAL_VIEW";
 
 export const UIContext = createContext<State | any>(initialState);
 
@@ -109,6 +145,28 @@ function uiReducer(state: State, action: Action) {
         return {
           ...state,
           modalData: action.data,
+        };
+      }
+
+      case "OPEN_CHAT_MODAL": {
+        return {
+          ...state,
+          displayChatModal: true,
+        };
+      }
+
+      case "CLOSE_CHAT_MODAL": {
+        return {
+          ...state,
+          displayChatModal: false,
+        };
+      }
+
+      case "SET_CHAT_MODAL_DATA": {
+        console.log(action.data)
+        return {
+          ...state,
+          chatModalData: action.data,
         };
       }
 
@@ -166,6 +224,35 @@ function uiReducer(state: State, action: Action) {
           ...state,
           toastList: [...newToastList]
         }
+      
+      case "OPEN_CONFIRMATION_MODAL": {
+        return {
+          ...state,
+          displayConfirmationModal: true,
+          displaySidebar: false,
+        };
+      }
+
+      case "CLOSE_CONFIRMATION_MODAL": {
+        return {
+          ...state,
+          displayConfirmationModal: false,
+        };
+      }
+
+      case "SET_CONFIRMATION_MODAL_VIEW": {
+        return {
+          ...state,
+          confirmationModalView: action.view,
+        };
+      }
+
+      case "SET_CONFIRMATION_MODAL_DATA": {
+        return {
+          ...state,
+          confirmationModalData: action.data,
+        };
+      }
     }
 }
 
@@ -177,6 +264,10 @@ export const UIProvider: React.FC<any> = (props: any) => {
     const setModalData = (data: any) => dispatch({type: 'SET_MODAL_DATA', data})
     const setModalView = (view: MODAL_VIEWS) => dispatch({type: 'SET_MODAL_VIEW', view})
 
+    const openChatModal = () => dispatch({type: 'OPEN_CHAT_MODAL'})
+    const closeChatModal = () => dispatch({type: 'CLOSE_CHAT_MODAL'})
+    const setChatModalData = (data: any) => dispatch({type: 'SET_CHAT_MODAL_DATA', data})
+
     const openImagesModal = () => dispatch({type: 'OPEN_IMAGES_MODAL'})
     const closeImagesModal = () => dispatch({type: 'CLOSE_IMAGES_MODAL'})
     const setImagesModalData = (data: any) => dispatch({type: 'SET_IMAGES_MODAL_DATA', data})
@@ -185,18 +276,31 @@ export const UIProvider: React.FC<any> = (props: any) => {
     const addToast = (toast: ToastType) => dispatch({type: 'ADD_TOAST', toast})
     const deleteToast = (id: number) => dispatch({type: 'DELETE_TOAST', id})
 
+    const openConfirmationModal = () => dispatch({ type: "OPEN_CONFIRMATION_MODAL" });
+    const closeConfirmationModal = () => dispatch({ type: "CLOSE_CONFIRMATION_MODAL" });
+    const setConfirmationModalView = (view: CONFIRMATION_MODAL_VIEWS) => dispatch({ type: "SET_CONFIRMATION_MODAL_VIEW", view });
+    // const setConfirmationModalData = (data: confirmationModalDataType) => dispatch({ type: "SET_CONFIRMATION_MODAL_DATA", data });
+    const setConfirmationModalData = (question: string, perfomedFunction: () => any) => dispatch({ type: "SET_CONFIRMATION_MODAL_DATA", data: {question, perfomedFunction} });
+
     const value = useMemo(() => ({
         ...state,
         openModal,
         closeModal,
         setModalData,
         setModalView,
+        openChatModal,
+        closeChatModal,
+        setChatModalData,
         openImagesModal,
         closeImagesModal,
         setImagesModalData,
         setImagesModalView,
         addToast,
         deleteToast,
+        openConfirmationModal,
+        closeConfirmationModal,
+        setConfirmationModalView,
+        setConfirmationModalData,
     }), [state])
 
     return <UIContext.Provider value={value} {...props} />;

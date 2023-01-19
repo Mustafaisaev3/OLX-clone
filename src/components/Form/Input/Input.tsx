@@ -1,5 +1,5 @@
 import React, {FC, HTMLAttributes, useEffect, useState} from 'react'
-import { InputComponent, Label, InputComp, InputError } from './Input.elements'
+import { InputComponent, Label, InputComp, InputCompContainer, InputError } from './Input.elements'
 
 interface InputInterface extends HTMLAttributes<HTMLInputElement> {
     id?: any,
@@ -9,9 +9,11 @@ interface InputInterface extends HTMLAttributes<HTMLInputElement> {
     type?: string,
     onChange?: any,
     getValue?: any,
+    rightComponent?: any,
+    leftComponent?: any,
 }
 
-const Input: FC<InputInterface> = ({id, label, name, type, onChange, getValue, ...props}) => {
+const Input: FC<InputInterface> = ({id, label, name, type, onChange, getValue, leftComponent, rightComponent, ...props}) => {
   const [inputValue, setInputValue] = useState<string>('')
   const handleInputChange = (e: any) => {
     setInputValue(e.target.value)
@@ -24,8 +26,12 @@ const Input: FC<InputInterface> = ({id, label, name, type, onChange, getValue, .
   return (
     <InputComponent>
         <Label htmlFor={name}>{label}</Label>
-        <InputComp id={name} type={type} onChange={(e) => handleInputChange(e)} {...props}/>
-        <InputError>Error,ErrorErrorErrorErrorError</InputError>
+        <InputCompContainer>
+          {leftComponent}
+          <InputComp id={name} type={type} onChange={(e) => handleInputChange(e)} {...props}/>
+          {rightComponent}
+        </InputCompContainer>
+        {/* <InputError>Error,ErrorErrorErrorErrorError</InputError> */}
     </InputComponent>
   )
 }
