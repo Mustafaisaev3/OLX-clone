@@ -28,7 +28,7 @@ const Input: FC<InputInterface> = ({id, label, name, type, onChange, getValue, l
         <Label htmlFor={name}>{label}</Label>
         <InputCompContainer>
           {leftComponent}
-          <InputComp id={name} type={type} onChange={(e) => handleInputChange(e)} {...props}/>
+          <InputComp className='input' id={name} type={type} onChange={(e) => handleInputChange(e)} {...props}/>
           {rightComponent}
         </InputCompContainer>
         {/* <InputError>Error,ErrorErrorErrorErrorError</InputError> */}
