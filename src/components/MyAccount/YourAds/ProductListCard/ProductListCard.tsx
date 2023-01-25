@@ -17,18 +17,18 @@ const ProductListCard = ({data}: any) => {
     const {openConfirmationModal, setConfirmationModalData} = useUI()
     const dispatch = useDispatch()
     const handleDeactivateAdClick = () => {
-        setConfirmationModalData({question: 'Ви дійсно хетече Деактивувати це оголошення?', perfomedFunction: () => dispatch(fetchDeactivateUserAd({adId: data._id, userId: data.user._id}))})
+        setConfirmationModalData('Ви дійсно хетече Деактивувати це оголошення?', () => dispatch(fetchDeactivateUserAd({adId: data._id, userId: data.user._id})))
         openConfirmationModal()
     }
     
     const handleActivateAdClick = () => {  
-        setConfirmationModalData({question: 'Ви дійсно хетече Активувати це оголошення?', perfomedFunction: () => dispatch(fetchActivateUserAd({adId: data._id, userId: data.user._id}))})
+        setConfirmationModalData('Ви дійсно хетече Активувати це оголошення?', () => dispatch(fetchActivateUserAd({adId: data._id, userId: data.user._id})))
         openConfirmationModal()
     }
     
     const handleDeleteAdClick = () => {
         // dispatch(fetchUserAds(data.user._id))
-        setConfirmationModalData({question: 'Ви дійсно хетече видалити це оголошення?', perfomedFunction: () => dispatch(fetchUserAds(data.user._id))})
+        setConfirmationModalData('Ви дійсно хетече видалити це оголошення?', () => dispatch(fetchUserAds(data.user._id)))
         openConfirmationModal()
     }
 
@@ -42,7 +42,7 @@ const ProductListCard = ({data}: any) => {
             <ProductInfo>
                 <ProductHeader>
                     <ProductTitle>
-                        <a href='#'>{data.title}</a>
+                        <a href={`http://localhost:3000/ad/${data._id}`}>{data.title}</a>
                     </ProductTitle>
                     <ProductPrice>{data.price.price} грн</ProductPrice>
                 </ProductHeader>

@@ -14,6 +14,10 @@ interface PhotoCardInterface {
 
 const ImageSliderCard = ({images}: PhotoCardInterface) => {
   const {openImagesModal, setImagesModalView, imagesModalView} = useUI()
+  const imagesUrls = images.map((imageObj: any) => {
+    return imageObj.url
+  })
+  
 
   const openImageModal = () => {
     console.log(imagesModalView)
@@ -24,7 +28,7 @@ const ImageSliderCard = ({images}: PhotoCardInterface) => {
   return (
     <ImagesContainer>
         <Card>
-            <ImageSlider images={images} />
+            <ImageSlider images={imagesUrls} />
         </Card>
         <FullSizeIcon onClick={openImageModal}>
             <BsArrowsFullscreen size={25} color={Colors.text_main} />

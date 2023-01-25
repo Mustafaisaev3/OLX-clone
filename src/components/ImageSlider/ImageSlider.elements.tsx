@@ -36,5 +36,5 @@ export const ImagesContainer = styled.div`
 export const ImageItem = styled.img`
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
 `

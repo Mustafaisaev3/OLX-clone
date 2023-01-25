@@ -23,6 +23,14 @@ const Header = () => {
         router.push('/post_new_ad')
     }
 
+    const handeleMessagesBtnClick = () => {
+        router.push('/myaccount/messages')
+    }
+
+    const handleMyAdsBtnClick = () => {
+        router.push('/myaccount')
+    }
+
     const {addToast} = useUI()
   return (
     <HeaderComp>
@@ -41,13 +49,13 @@ const Header = () => {
                     </Lang>
                     <UserBox>
                         <UserBoxItem>
-                            <UserBoxLink href='#'>
+                            <UserBoxLink onClick={handeleMessagesBtnClick}>
                                 <BiMessageSquare size={30} color='white'/>
                                 <h2>Повідомлення</h2>
                             </UserBoxLink>
                         </UserBoxItem>
                         <UserBoxItem>
-                            <UserBoxLink href='#'>
+                            <UserBoxLink>
                                 <FiHeart size={30} color='white'/>
                             </UserBoxLink>
                         </UserBoxItem>
@@ -62,7 +70,7 @@ const Header = () => {
                                 <DropdownBodyContainer>
                                     <DropdownContainerTitle>Ваш профиль</DropdownContainerTitle>
                                     <DropdownContainerItems>
-                                        <DropdownContainerItem>Оголошення</DropdownContainerItem>
+                                        <DropdownContainerItem onClick={handleMyAdsBtnClick}>Оголошення</DropdownContainerItem>
                                         <DropdownContainerItem>Повідомлення</DropdownContainerItem>
                                         <DropdownContainerItem>Платежі</DropdownContainerItem>
                                         <DropdownContainerItem>Рахунок</DropdownContainerItem>

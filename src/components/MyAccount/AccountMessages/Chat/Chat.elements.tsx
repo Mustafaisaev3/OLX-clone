@@ -3,7 +3,7 @@ import Colors from "../../../../utils/css_variables/colors";
 
 export const ChatContainer = styled.div`
     width: 100%;
-    height: 500px;
+    height: 600px;
     border-radius: 5px;
     background-color: white;
     display: flex;
@@ -35,6 +35,9 @@ export const ChatHeaderSenderImage = styled.div`
     height: 40px;
     border-radius: 100%;
     background-color: ${Colors.main_green};
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 export const ChatHeaderSenderName = styled.h2`
     font-size: 16px;
@@ -86,6 +89,13 @@ export const ConversationAdImage = styled.div`
     width: 50px;
     height: 40px;
     background-color: ${Colors.main_green};
+    overflow: hidden;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `
 
 export const ConversationAdTitle = styled.h2`
@@ -123,7 +133,7 @@ export const ReceivedMessageContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 8px;
-    
+
     & > span{
         font-size: 12px;
         line-height: 14px;

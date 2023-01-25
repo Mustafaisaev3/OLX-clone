@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Colors from "../../../utils/css_variables/colors";
 
 export const ChatModalWrapper = styled.div`
-    width: 350px;
+    width: 400px;
     height: 450px;
     padding: 30px;
     display: flex;
@@ -37,6 +37,9 @@ export const ChatModalHeader = styled.div`
 export const UserLogo = styled.div`
     width: 40px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 100%;
     background-color: ${Colors.main_green};
 `
@@ -57,22 +60,26 @@ export const ChatModalCloseBtn = styled.div`
 
 // Chat Modal Body
 export const ChatModalBody = styled.div`
+    overflow: hidden;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 `
 
 export const AdInfoContainer = styled.div`
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
+    /* -webkit-box-align: center; */
     text-decoration: none;
     padding: 12px 16px;
     background-color: rgb(255, 255, 255);
     height: 64px;
+    border-bottom: 1px dotted rgb(216, 223, 224)
 `
 
 export const AdPhoto = styled.div`
-    width: auto;
-    height: 100%;
+    width: 70px !important;
+    height: 50px;
 
     & > img {
         width: 100%;
@@ -82,9 +89,11 @@ export const AdPhoto = styled.div`
 `
 
 export const AdInfo = styled.div`
-    width: 100%;
-    height: 100%;
-    margin-left: 16px;
+    /* width: 100%;
+    height: 100%; */
+    flex-grow: 1;
+    padding-left: 10px;
+    overflow: hidden;
 
     & > p {
         font-size: 14px;
@@ -107,6 +116,80 @@ export const AdPrice = styled.p`
     text-overflow: ellipsis;
     font-weight: 700;
 `
+
+export const AdMessagesContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    padding: 10px 16px;
+    flex-grow: 1;
+    overflow-y: scroll;
+`
+
+export const ReceivedMessageContainer = styled.div`
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    & > span{
+        font-size: 12px;
+        line-height: 14px;
+        color: rgb(64, 99, 103);
+        margin: 2px 0px;
+    }
+`
+
+export const ReceivedMessage = styled.div`
+    width: fit-content;
+    background: rgb(242, 244, 245);
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+`
+
+export const SentMessageContainer = styled.div`
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+
+    & > span{
+        font-size: 12px;
+        line-height: 14px;
+        color: rgb(64, 99, 103);
+        margin: 2px 0px;
+    }
+`
+
+export const SentMessage = styled.div`
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+    /* width: 100%; */
+    background: rgb(206, 221, 255);
+
+    & > div{
+        border-bottom: 15px solid rgb(206, 221, 255);
+        border-left: 0px solid transparent;
+        border-right: 25px solid transparent;
+        border-top-left-radius: 1px;
+        border-top-right-radius: 8px;
+        bottom: -5px;
+        box-sizing: content-box;
+        display: block;
+        height: 0px;
+        position: absolute;
+        right: 0px;
+        transform: rotate(169deg);
+        width: 5px;
+    }
+`
+
     
 // Chat Modal Footer
 export const ChatModalFooter = styled.div`

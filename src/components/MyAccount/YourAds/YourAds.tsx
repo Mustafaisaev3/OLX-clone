@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { Container, Section } from '../../../pages/globalStyles'
 import { fetchUserAds } from '../../../store/ducks/user/action'
-import { selectUserAdsData } from '../../../store/ducks/user/selectors'
+import { selectUserAdsData, selectUserData } from '../../../store/ducks/user/selectors'
 import EmptyAccountAds from '../../Empty/EmptyAccountAds/EmptyAccountAds'
 import AccountHeader from '../../Sections/Account/AccountHeader/AccountHeader'
 // import AccountHeaderTabs from '../../UI/AccountHeaderTabs/AccountHedaerTabs'
@@ -16,12 +16,12 @@ const YourAds = () => {
 //   const [userAds, setUserAds] = useState([])
   const [isActiveAds, setIsActiveAds] = useState(true)
   const dispatch = useDispatch()
+  const currentUser = useSelector(selectUserData)
 
   const userAds = useSelector(selectUserAdsData)
 
-
   useEffect(() => {
-    dispatch(fetchUserAds('63aabf517d072f7917253f98'))
+    dispatch(fetchUserAds(currentUser.id))
   }, [])
 
   return (

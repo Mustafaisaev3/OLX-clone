@@ -3,7 +3,7 @@ import Colors from "../../../../utils/css_variables/colors";
 
 export const ConversationListContainer = styled.div`
     width: 500px;
-    height: 500px;
+    height: 600px;
     border-radius: 5px;
     background-color: white;
     display: flex;
@@ -57,7 +57,11 @@ export const ConversationListItem = styled.li`
     font-weight: normal;
     position: relative;
     user-select: none !important;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
+
+    &.active {
+        background-color: #6fffec6a;
+    }
 `
 
 export const ConversationListItemImage = styled.div`
@@ -65,6 +69,13 @@ export const ConversationListItemImage = styled.div`
     height: 50px;
     border-radius: 100%;
     background-color: ${Colors.main_green};
+    overflow: hidden;
+
+    & > img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 `
 
 export const ConversationListItemBody = styled.div`

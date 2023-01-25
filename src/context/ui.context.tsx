@@ -280,6 +280,7 @@ export const UIProvider: React.FC<any> = (props: any) => {
     const closeConfirmationModal = () => dispatch({ type: "CLOSE_CONFIRMATION_MODAL" });
     const setConfirmationModalView = (view: CONFIRMATION_MODAL_VIEWS) => dispatch({ type: "SET_CONFIRMATION_MODAL_VIEW", view });
     // const setConfirmationModalData = (data: confirmationModalDataType) => dispatch({ type: "SET_CONFIRMATION_MODAL_DATA", data });
+    // const setConfirmationModalData = (question: string, perfomedFunction: () => any) => dispatch({ type: "SET_CONFIRMATION_MODAL_DATA", data: {question, perfomedFunction} });
     const setConfirmationModalData = (question: string, perfomedFunction: () => any) => dispatch({ type: "SET_CONFIRMATION_MODAL_DATA", data: {question, perfomedFunction} });
 
     const value = useMemo(() => ({

@@ -6,13 +6,18 @@ import PlaceInfo from './PlaceInfo/PlaceInfo'
 import AdMainInfo from './AdMainInfo/AdMainInfo'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
-import { selectAd, selectAdPhotos, selectAdState, selectAdStatus } from '../../../../store/ducks/ad/selectors'
+import { selectAd, selectAdState, selectAdStatus } from '../../../../store/ducks/ad/selectors'
 import { useDispatch } from 'react-redux'
 import { fetchAdById } from '../../../../store/ducks/ad/action'
 import { LoadingState } from '../../../../store/types'
 
-const MainContent = () => {
-  const adId = '63c076b1f307a46c8634bb2c'
+interface MainContentType {
+  adId: string | undefined
+}
+
+const MainContent = ({ adId }: any) => {
+  // const adId = '63c7ab25b6295473e68b5ac6'
+  // const adId = '63c7ac36b6295473e68b5ada'
   // const [adData, setAdData] = useState<any>(null)
   // const [imagesArr, setImagesArr] = useState<any>([])
   // const getAdInfo = async () => {
@@ -28,7 +33,7 @@ const MainContent = () => {
 
   useEffect(() => {
     dispatch(fetchAdById(adId))
-  }, [dispatch, currentAdStatus])
+  }, [dispatch, currentAdStatus, adId])
 
   return (
     <>
@@ -36,7 +41,9 @@ const MainContent = () => {
         ?
       <MainContentContainer>
           <LeftContent>
+            {currentAd.photos ? (
               <ImageSliderCard images={currentAd.photos}></ImageSliderCard>
+            ): null}
               <AdMainInfo></AdMainInfo>
           </LeftContent>
           <RightContent>

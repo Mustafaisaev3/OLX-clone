@@ -23,8 +23,9 @@ export const AdsApi = {
     },
 
     async getAdById(adId: string): Promise<AuthResponceApi> {
-        const { data } = await axios.get<AuthResponceApi>(`http://localhost:8888/getAd/${adId}`)
+        const { data } = await axios.get<AuthResponceApi>(`http://localhost:8888/ad/${adId}`)
         // const { data } = await axios.get<AuthResponceApi>(`http://localhost:8888/getAd/63c6a19e15ec32854102fc8b`)
+        // const { data } = await axios.post<AuthResponceApi>(`http://localhost:8888/getAd`, { adId })
         console.log(data, adId)
         return data
     },

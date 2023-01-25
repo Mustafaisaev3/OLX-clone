@@ -7,10 +7,10 @@ import { AdActionsType } from './contracts/actionType'
 export function* fetchAdByIdRequest ({payload}: any) {
     try {
         yield put(setAdLoadingState(LoadingState.LOADING))
-        const { data, images } = yield call(AdsApi.getAdById, payload)
-        const ad = {...data, photos: images}
-        console.log(ad)
-        yield put(setAdData(ad))
+        // const { data, images } = yield call(AdsApi.getAdById, payload)
+        const { data } = yield call(AdsApi.getAdById, payload)
+        // const ad = {...data, photos: images}
+        yield put(setAdData(data))
         yield put(setAdLoadingState(LoadingState.LOADED))
     } catch (error) {
         yield put(setAdLoadingState(LoadingState.ERROR))

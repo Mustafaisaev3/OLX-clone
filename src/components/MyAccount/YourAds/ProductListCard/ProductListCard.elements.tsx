@@ -8,10 +8,14 @@ export const ProductContent = styled.div`
 export const ProductImage = styled.div`
     width: 250px;
     height: auto;
+    max-height: 200px;
     border-radius: 5px;
+    overflow: hidden;
 
     & > img{
-        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 `
 

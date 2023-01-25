@@ -90,7 +90,8 @@ export const UserBox = styled.ul`
 export const UserBoxItem = styled.li`
     
 `
-export const UserBoxLink = styled(Link)`
+// export const UserBoxLink = styled(Link)`
+export const UserBoxLink = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
